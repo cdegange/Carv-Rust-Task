@@ -8,7 +8,7 @@ use crate::github::fetch_repos;
 use crate::utils::{display_repos, save_repos};
 
 fn main() {
-    if args = parse_args();
+    let args = parse_args();
 
     let all_repos = fetch_repos(&args);
 

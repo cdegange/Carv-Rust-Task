@@ -1,11 +1,12 @@
 use reqwest::blocking::Client;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Serialize)]
 pub struct Repository {
     pub name: String,
     pub html_url: String,
     pub description: Option<String>,
+    #[serde(rename = "stargazers_count")]
     pub stargazers_count: u32,
 }
 
