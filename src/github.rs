@@ -1,8 +1,8 @@
 use reqwest::blocking::Client;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Deserialize, Serialize)] // Fix: Ensure `Serialize` is imported
-pub struct Repository { // Fix: `pub` struct for visibility
+#[derive(Debug, Deserialize, Serialize)] 
+pub struct Repository {
     pub name: String,
     pub html_url: String,
     pub description: Option<String>,
@@ -25,7 +25,7 @@ pub fn fetch_repos(username: &str, token: Option<&str>) -> Vec<Repository> {
         .headers(headers)
         .send()
         .unwrap()
-        .json::<Vec<Repository>>() // Ensure `reqwest` has "json" feature enabled
+        .json::<Vec<Repository>>()
         .unwrap_or_default();
 
     let mut repos = response;

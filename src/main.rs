@@ -73,7 +73,7 @@ fn main() {
 
     let mut all_repos = vec![];
     for username in &usernames {
-        thread::sleep(Duration::from_secs(5)); // Rate limit control (2 requests per 10 seconds)
+        thread::sleep(Duration::from_secs(5));
         let repos = fetch_repos(username, token.as_deref());
         all_repos.extend(repos);
     }
